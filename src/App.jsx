@@ -4,6 +4,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { Sidebar } from './components/Sidebar';
 import { ToastContainer } from './components/Toast';
 import { AddTransactionDrawer } from './components/AddTransactionDrawer';
+import { PwaInstallPrompt } from './components/PwaInstallPrompt';
 import { useStore } from './store';
 
 const loadDashboardPage = () => import('./pages/Dashboard');
@@ -194,6 +195,7 @@ function AppShell() {
         <AnimatedRoutes />
       </main>
       <AddTransactionDrawer />
+      <PwaInstallPrompt />
       <ToastContainer />
     </div>
   );
