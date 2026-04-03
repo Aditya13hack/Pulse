@@ -271,7 +271,7 @@ export function Sidebar() {
                       initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                     >
                       <span className="text-[13px] font-semibold text-[var(--text-primary)]">User</span>
-                      <span className={`text-[10px] px-1.5 rounded-sm font-bold uppercase tracking-widest mt-0.5 ${role === 'admin' ? 'bg-[var(--accent-primary)]/20 text-[var(--accent-primary)]' : 'bg-black/30 text-zinc-400'}`}>
+                      <span className={`text-[10px] px-1.5 rounded-sm font-bold uppercase tracking-widest mt-0.5 ${role === 'admin' ? 'bg-[var(--accent-primary)]/20 text-[var(--accent-primary)]' : 'bg-[var(--text-muted)]/10 text-[var(--text-muted)] border border-[var(--text-muted)]/10'}`}>
                         {role}
                       </span>
                     </motion.div>

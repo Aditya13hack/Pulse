@@ -46,20 +46,29 @@ function ToastItem({ toast, onRemove }) {
       animate={{ opacity: 1, x: 0, scale: 1 }}
       exit={{ opacity: 0, x: 40, scale: 0.95, transition: { duration: 0.2 } }}
       transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-      className="pointer-events-auto relative overflow-hidden bg-[#1E1E22] border border-white/10 rounded-xl shadow-2xl p-[12px_16px] min-w-[280px] max-w-[360px] flex items-start gap-3"
-      style={{ borderLeft: `3px solid ${config.color}` }}
+      className="pointer-events-auto relative overflow-hidden rounded-xl p-[14px_18px] min-w-[300px] max-w-[400px] flex items-start gap-3 backdrop-blur-xl transition-colors duration-300"
+      style={{ 
+        backgroundColor: 'var(--bg-card)', 
+        borderColor: 'var(--border-subtle)',
+        borderWidth: '1px',
+        borderLeft: `4px solid ${config.color}`,
+        boxShadow: 'var(--card-shadow-hover)',
+      }}
     >
-      <Icon className="w-5 h-5 mt-0.5" style={{ color: config.color }} />
-      <div className="flex-1">
-        <p className="text-[14px] text-text-primary leading-tight font-medium">
+      <div className="flex items-center justify-center w-6 h-6 rounded-lg flex-shrink-0" style={{ backgroundColor: `${config.color}15` }}>
+        <Icon className="w-4 h-4" style={{ color: config.color }} />
+      </div>
+      <div className="flex-1 pt-0.5">
+        <p className="text-[14px] leading-snug font-semibold" style={{ color: 'var(--text-primary)' }}>
           {toast.message}
         </p>
       </div>
       <button 
         onClick={onRemove}
-        className="text-text-muted hover:text-white transition-colors"
+        className="p-1 rounded-md transition-colors"
+        style={{ color: 'var(--text-muted)' }}
       >
-        <X className="w-4 h-4" />
+        <X className="w-3.5 h-3.5" />
       </button>
 
       {/* Countdown bar */}

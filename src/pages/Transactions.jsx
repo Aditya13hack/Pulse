@@ -117,7 +117,7 @@ function SpendHeatmap({ transactions }) {
           </span>
         )}
       </div>
-      <div className="flex gap-[3px]">
+      <div className="flex gap-[2px] sm:gap-[3px]">
         {days.map((day, i) => {
           const pct = day.amount / max;
           const isToday = day.date.toDateString() === new Date().toDateString();
@@ -127,10 +127,9 @@ function SpendHeatmap({ transactions }) {
               whileHover={{ scale: 1.4 }}
               onMouseEnter={() => setHovered(day)}
               onMouseLeave={() => setHovered(null)}
-              className="rounded-[3px] cursor-default transition-colors relative"
+              className="rounded-[2px] sm:rounded-[3px] cursor-default transition-colors relative w-[8.5px] h-[8.5px] sm:w-[14px] sm:h-[14px] flex-shrink-0"
               title={`${new Date(day.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}: ${fmt(day.amount)}`}
               style={{
-                width: 14, height: 14, flexShrink: 0,
                 backgroundColor: day.amount === 0
                   ? 'rgba(139,92,246,0.06)'
                   : `rgba(139,92,246,${0.15 + pct * 0.85})`,
@@ -141,10 +140,10 @@ function SpendHeatmap({ transactions }) {
         })}
       </div>
       {/* Day-of-week labels under */}
-      <div className="flex gap-[3px] mt-0.5">
+      <div className="flex gap-[2px] sm:gap-[3px] mt-0.5">
         {days.map((day, i) => (
-          <div key={i} className="w-[14px] flex-shrink-0 text-center" style={{ fontSize: 8, color: 'rgba(139,92,246,0.4)' }}>
-            {i % 7 === 0 ? dayNames[new Date(day.date).getDay()] : ''}
+          <div key={i} className="w-[8.5px] sm:w-[14px] flex-shrink-0 text-center" style={{ fontSize: 7, color: 'rgba(139,92,246,0.3)', opacity: i % 7 === 0 ? 1 : 0 }}>
+            {dayNames[new Date(day.date).getDay()]}
           </div>
         ))}
       </div>
