@@ -189,7 +189,7 @@ function StatCard({ label, value, sub, accent, trend, trendUp, introIndex = 0 })
 }
 
 /* ─── Custom Select Dropdown ─── */
-function CustomSelect({ value, options, onChange, icon: Icon, placeholder, matchStyle }) {
+function CustomSelect({ value, options, onChange, icon: Icon, placeholder, matchStyle, align = 'left' }) {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 
@@ -225,7 +225,7 @@ function CustomSelect({ value, options, onChange, icon: Icon, placeholder, match
              animate={{ opacity: 1, scale: 1, y: 0 }}
              exit={{ opacity: 0, scale: 0.95, y: -4 }}
              transition={{ duration: 0.15 }}
-             className="absolute top-10 left-0 z-50 min-w-[140px] rounded-2xl border shadow-2xl p-1 overflow-hidden"
+             className={`absolute top-10 z-50 min-w-[140px] rounded-2xl border shadow-2xl p-1 overflow-hidden ${align === 'right' ? 'right-0' : 'left-0'}`}
              style={{ backgroundColor: isLightMode ? '#ffffff' : '#18181B', borderColor: isLightMode ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.08)' }}
            >
              <div className="max-h-[240px] overflow-y-auto hide-scrollbar">
@@ -547,8 +547,8 @@ export default function Transactions() {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95, y: -4 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute top-10 left-0 z-50 w-60 rounded-2xl border shadow-2xl p-2 overflow-hidden"
-                  style={{ backgroundColor: '#18181B', borderColor: 'rgba(255,255,255,0.08)' }}
+                  className={`absolute top-10 z-50 w-60 rounded-2xl border shadow-2xl p-2 overflow-hidden ${window.innerWidth < 640 ? 'left-1/2 -translate-x-1/2' : 'left-0'}`}
+                  style={{ backgroundColor: isLightMode ? '#ffffff' : '#18181B', borderColor: isLightMode ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.08)' }}
                 >
                   <div className="grid grid-cols-2 gap-1">
                     {CATEGORIES.map(cat => {
@@ -602,10 +602,11 @@ export default function Transactions() {
         />
 
         {/* Sort */}
-        <div className="ml-auto">
+        <div className="ml-auto sm:ml-auto">
           <CustomSelect
             value={filters.sortBy || 'newest'}
             onChange={val => setFilters({ sortBy: val })}
+            align="right"
             options={[
               { value: 'newest', label: 'Newest' },
               { value: 'oldest', label: 'Oldest' },
