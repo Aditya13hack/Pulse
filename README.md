@@ -1,5 +1,7 @@
 # Pulse — Personal Finance Dashboard
 
+**Live Demo:** https://pulse-finance-dashboard.vercel.app
+
 ## Overview
 
 Pulse is a single-page finance dashboard built for individuals who want clarity over their financial activity, presented through a rare, hand-crafted, and highly engaging UI. Going beyond standard enterprise tools, Pulse uses advanced visual techniques—animated mesh gradients, SVG noise textures, layered glassmorphism, and subtle micro-interactions—to create a "living" interface. It tracks income, expenses, category breakdowns, savings goals, and monthly budgets through a carefully considered design system that prioritizes a premium, out-of-the-box aesthetic.
@@ -13,7 +15,7 @@ The decision to build Pulse with React and Zustand, rather than a more opinionat
 > Node 18+ is required.
 
 ```bash
-git clone https://github.com/your-username/pulse-finance.git
+git clone
 cd pulse-finance
 npm install
 npm run dev
